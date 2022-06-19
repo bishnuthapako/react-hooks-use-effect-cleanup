@@ -5,8 +5,15 @@ function Clock() {
 
   useEffect(() => {
     setInterval(() => {
-      setTime(new Date());
+     const timerID = setTime(new Date());
     }, 1000);
+
+    return function cleanup(){
+      clearInterval()
+    };
+
+
+
   }, []);
 
   return <div>{time.toString()}</div>;
